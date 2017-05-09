@@ -3,9 +3,10 @@ This is a simple scheduler engine for robot control in C#. With it you can easil
 
 How to use it,
 
-1. Create the scheduler engine<br/>
-SchedulerEngineEx scheduler = new SchedulerEngineEx();<br/>
-
+1. Create the scheduler engine
+```csharp
+SchedulerEngineEx scheduler = new SchedulerEngineEx();
+```
 2. Define the resource
 ```csharp
             scheduler.Register("STAR", 1, Color.Blue.ToArgb());<br/>
