@@ -1,5 +1,5 @@
 # SchedulerEngineDotNet
-This is a simple scheduler engine for robot control in C#.
+This is a simple scheduler engine for robot control in C#. With it you can easily enable your software processing multiple task parallel on your instrument.
 
 How to use it,
 
