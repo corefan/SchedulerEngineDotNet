@@ -9,12 +9,12 @@ SchedulerEngineEx scheduler = new SchedulerEngineEx();
 ```
 2. Define the resource
 ```csharp
-            scheduler.Register("STAR", 1, Color.Blue.ToArgb());<br/>
-            scheduler.Register("iSWAP", 1, Color.Red.ToArgb());<br/>
-            scheduler.Register("Incubator", 10, Color.Green.ToArgb());<br/>
-            scheduler.Register("Reader", 1, Color.Yellow.ToArgb());<br/>
+            scheduler.Register("STAR", 1, Color.Blue.ToArgb());
+            scheduler.Register("iSWAP", 1, Color.Red.ToArgb());
+            scheduler.Register("Incubator", 10, Color.Green.ToArgb());
+            scheduler.Register("Reader", 1, Color.Yellow.ToArgb());
 ```
-3. Define the assay<br/>
+3. Define the assay
 ```csharp
     class Task1 : TaskEx
     {
@@ -41,7 +41,7 @@ SchedulerEngineEx scheduler = new SchedulerEngineEx();
         }
     }
 ```    
-4. activate the assay and schedule the workflow<br/>
+4. activate the assay and schedule the workflow
 ```csharp
  scheduler.Activate(new Task1());
  ```
