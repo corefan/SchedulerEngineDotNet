@@ -23,9 +23,9 @@ namespace Scheduler
                 t.StartTask(name);
             }
 
-            public bool Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration = 0)
+            public void Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration, TaskStarter func)
             {
-                return t.Activity(name, duration, resources, count, color, maxPlanDuration);
+                t.Activity(name, duration, resources, count, color, maxPlanDuration, func);
             }
 
             public void EndTask()
@@ -189,7 +189,7 @@ namespace Scheduler
             }
         }
 
-        public bool Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration = 0)
+        public void Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration, TaskStarter func)
         {
             if (ScheduleMode)
             {
@@ -203,18 +203,17 @@ namespace Scheduler
                     act.Resources[resources[i]] = count[i];
                 }
                 embedActivities.Add(act);
-                return false;
             }
             else
             {
                 if (Status == Status.Cancelled)
-                    return false;
+                    return;
                 if (CurrentActivity == null)
                     CurrentActivity = Activities[0];
                 else
                     CurrentActivity = CurrentActivity.Next;
                 WaitForActivityStart(CurrentActivity);
-                return true;
+                func();
             }
         }
 

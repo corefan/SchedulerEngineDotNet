@@ -6,10 +6,11 @@ using System.Drawing;
 
 namespace Scheduler
 {
+    public delegate void TaskStarter();
     public interface ITaskControl
     {
         void StartTask(string name);
-        bool Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration = 0);
+        void Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration, TaskStarter func);
         void EndTask();
 
         void CancelTask();

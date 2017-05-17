@@ -57,21 +57,24 @@ namespace TestSchedulerEx
         public override void Run()
         {
             StartTask("Assay1");
-            if (Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue))
+            Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue, () =>
             {
-            }
-            if (Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red))
+
+            });
+            Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red, () => { 
+            });
+            Activity("incubation", 300, new string[] { "Incubator" }, new int[] { 1 }, Color.Green, () =>
             {
-            }
-            if (Activity("incubation", 300, new string[] { "Incubator" }, new int[] { 1 }, Color.Green))
+
+            });
+            Activity("transport", 20, new string[] { "iSWAP", "Incubator", "Reader" }, new int[] { 1, 1, 1 }, Color.Red,()=>{
+
+            });
+            Activity("reader", 60, new string[] { "Reader" }, new int[] { 1 }, Color.Yellow, () =>
             {
-            }
-            if (Activity("transport", 20, new string[] { "iSWAP", "Incubator", "Reader" }, new int[] { 1, 1, 1 }, Color.Red))
-            {
-            }
-            if (Activity("reader", 60, new string[] { "Reader" }, new int[] { 1 }, Color.Yellow))
-            {
-            }
+
+            });
+            
             EndTask();
         }
     }
@@ -80,27 +83,28 @@ namespace TestSchedulerEx
         public override void Run()
         {
             StartTask("Assay2");
-            if (Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue))
+            Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue,()=>{
+
+            });
+            Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red,()=>{
+
+            });
+            Activity("incubation", 420, new string[] { "Incubator" }, new int[] { 1 }, Color.Green,()=>{
+
+            });
+            Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red,()=>{
+
+            });
+            Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue,()=>{
+                MessageBox.Show("pipette");
+            });
+            Activity("transport", 20, new string[] { "iSWAP", "Incubator", "Reader" }, new int[] { 1, 1, 1 }, Color.Red,()=>{
+
+            });
+            Activity("reader", 60, new string[] { "Reader" }, new int[] { 1 }, Color.Yellow, () =>
             {
-            }
-            if (Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red))
-            {
-            }
-            if (Activity("incubation", 420, new string[] { "Incubator" }, new int[] { 1 }, Color.Green))
-            {
-            }
-            if (Activity("transport", 20, new string[] { "iSWAP", "Incubator" }, new int[] { 1, 1 }, Color.Red))
-            {
-            }
-            if (Activity("pipette", 60, new string[] { "STAR" }, new int[] { 1 }, Color.Blue))
-            {
-            }
-            if (Activity("transport", 20, new string[] { "iSWAP", "Incubator", "Reader" }, new int[] { 1, 1, 1 }, Color.Red))
-            {
-            }
-            if (Activity("reader", 60, new string[] { "Reader" }, new int[] { 1 }, Color.Yellow))
-            {
-            }
+
+            });
             EndTask();
         }
     }

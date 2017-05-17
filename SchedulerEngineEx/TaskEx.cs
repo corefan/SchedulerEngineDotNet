@@ -19,10 +19,13 @@ namespace Scheduler
         {
             t.StartTask(name);
         }
-
-        public bool Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration = 0)
+        public void Activity(string name, int duration, string[] resources, int[] count, Color color, TaskStarter func)
         {
-            return t.Activity(name, duration, resources, count, color, maxPlanDuration);
+            t.Activity(name, duration, resources, count, color, 0, func);
+        }
+        public void Activity(string name, int duration, string[] resources, int[] count, Color color, int maxPlanDuration, TaskStarter func)
+        {
+            t.Activity(name, duration, resources, count, color, maxPlanDuration, func);
         }
 
         public void EndTask()
