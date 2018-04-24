@@ -7,14 +7,14 @@ This is a simple scheduler engine for robot control in C#. With it you can easil
 ```csharp
 SchedulerEngineEx scheduler = new SchedulerEngineEx();
 ```
-2. Define the resource
+2. Define the resource (like instrument) and number
 ```csharp
             scheduler.Register("STAR", 1, Color.Blue.ToArgb());
             scheduler.Register("iSWAP", 1, Color.Red.ToArgb());
             scheduler.Register("Incubator", 10, Color.Green.ToArgb());
             scheduler.Register("Reader", 1, Color.Yellow.ToArgb());
 ```
-3. Define the assay
+3. Define the protocol of assay
 ```csharp
     class Task1 : TaskEx
     {
