@@ -1,5 +1,5 @@
 # SchedulerEngineDotNet
-This is a simple scheduler engine for robot control in C#. With it you can easily enable your software processing multiple task parallel on your instrument.
+This is a scheduler engine for robot control in C#. With it you can easily enable your software processing multiple tasks or assays parallelly on multiple instruments.
 
 # How to use it,
 
@@ -47,6 +47,8 @@ SchedulerEngineEx scheduler = new SchedulerEngineEx();
  ```csharp
  scheduler.Run();
  ```
+ The scheduler can monitor and change the workflow realtime.
+ 
  we also write a simple GUI to display the task and resource, which can easily shown in the WinForm
  ```csharp
  Scheduler.SchedulerView view = new Scheduler.SchedulerView();
